@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
+import { CartDropdownContext } from "../../contexts/cartToggle.context";
 import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import { signOutUser } from "../../utils/firebase/firebase";
+import CartIcon from "../../components/CartIcon/CartIcon";
+import CartDropdown from "../../components/CartDropdown/CartDropdown";
 import "./navigation.scss";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-
+  const { showCart } = useContext(CartDropdownContext);
   console.log(currentUser);
 
   return (
@@ -32,7 +35,10 @@ const Navigation = () => {
               Sign In
             </Link>
           )}
+
+          <CartIcon />
         </div>
+        {showCart && <CartDropdown />}
       </div>
       <Outlet />
     </>
