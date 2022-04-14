@@ -11,7 +11,6 @@ import "./navigation.scss";
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
   const { showCart } = useContext(CartDropdownContext);
-  console.log(currentUser);
 
   return (
     <>
