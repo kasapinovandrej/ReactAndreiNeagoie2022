@@ -15,10 +15,13 @@ const Category = () => {
   }, [category, categoriesMap]);
 
   return (
-    <div className="categor-container">
-      {products &&
-        products.map((el) => <ProductCard key={el.id} product={el} />)}
-    </div>
+    <>
+      <h2 className="category-title">{category.toUpperCase()}</h2>
+      <div className="categor-container">
+        {products &&
+          products.map((el) => <ProductCard key={el.id} product={el} />)}
+      </div>
+    </>
   );
 };
 
