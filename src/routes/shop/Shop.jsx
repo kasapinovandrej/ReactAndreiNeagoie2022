@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchCategoriesStart } from "../../store/categories/categories.action";
 import CategoriesPreview from "../CategoriesPreview/CategoriesPreview";
 import Category from "../Category/Category";
 import "./shop.scss";
-import { useDispatch } from "react-redux";
-import { fetchCategoriesAsync } from "../../store/categories/categories.action";
-import { useSelector } from "react-redux";
 
 const Shop = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCategoriesAsync());
+    dispatch(fetchCategoriesStart());
   }, []);
 
   return (
